@@ -6,13 +6,7 @@ namespace EntidadesCs
 {
    public class Referee : Persona
    {
-      public bool Internacional { get; set; } = false; // ok ??
-
-      // new() ?? que lleva el constructor
-      //public Referee ()
-      //{
-
-      //}
+      public bool Internacional { get; set; } = false;
 
       public Referee (string nombre, DateTime fechaNacimiento, bool internacional) : base(nombre, fechaNacimiento)
       {
@@ -21,10 +15,7 @@ namespace EntidadesCs
 
       public override string ToString()
       {
-         if (Internacional)
-            return $" {Nombre} (I)";
-         else
-            return $" {Nombre}";
+         return $" {Nombre} {(Internacional ? "(I)" : "")}";
       }
    }
 }

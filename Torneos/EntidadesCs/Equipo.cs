@@ -29,7 +29,8 @@ namespace EntidadesCs
             throw new ArgumentException(" el jugador no puede ser nulo.");
          if (jugadores.Contains(jugador))
             throw new ArgumentException($" el jugador {jugador.Nombre} ya esta en el equipo.");
-         jugadores.Add(jugador);
+         jugador.Equipo = this; // primero se asigna al externo
+         jugadores.Add(jugador); // luego se agrega al interno
       }
 
       public List<Jugador> GetAllJugadores()
@@ -43,8 +44,9 @@ namespace EntidadesCs
             throw new ArgumentException(" el jugador no puede ser nulo.");
          if (!jugadores.Contains(jugador))
             throw new ArgumentException($" el jugador {jugador.Nombre} no esta en el equipo.");
-         jugadores.Remove(jugador);
+         jugador.Equipo = equipoDestino;
          equipoDestino.ComprarJugador(jugador);
+         jugadores.Remove(jugador);
       }
 
       public void LiberarJugador(Jugador jugador)
@@ -53,6 +55,7 @@ namespace EntidadesCs
             throw new ArgumentException(" el jugador no puede ser nulo.");
          if (!jugadores.Contains(jugador))
             throw new ArgumentException($" el jugador {jugador.Nombre} no esta en el equipo.");
+         jugador.Equipo = null;
          jugadores.Remove(jugador);
       }
 

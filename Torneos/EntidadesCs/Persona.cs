@@ -6,18 +6,17 @@ namespace EntidadesCs
 {
    public abstract class Persona
    {
-      public ushort Edad { get => CalcularEdad(); } // private set ??
+      public ushort Edad { get => CalcularEdad(); }
       private DateTime fechaNacimiento;
       private string nombre;
 
-      // metodos simil constructor ?? uno vacio y otro con parametros
-      protected Persona()
+      public Persona()
       {
          Nombre = " ";
          FechaNacimiento = DateTime.MinValue;
       }
 
-      protected Persona(string nombre, DateTime fechaNacimiento)
+      public Persona(string nombre, DateTime fechaNacimiento)
       {
          Nombre = nombre;
          FechaNacimiento = fechaNacimiento;
@@ -32,7 +31,7 @@ namespace EntidadesCs
       public DateTime FechaNacimiento
       {
          get => fechaNacimiento;
-         set // se puede usar calcular edad para validar aca ?
+         set
          {
             if (DateTime.Today.AddYears(-16) < value)
                throw new ArgumentException(" la persona debe tener por lo menos 16 anios.");
@@ -43,10 +42,8 @@ namespace EntidadesCs
       public ushort CalcularEdad()
       {
          int age = DateTime.Now.Year - FechaNacimiento.Year;
-
          if (FechaNacimiento.Date > DateTime.Today.AddYears(-age))
             age--;
-
          return (ushort)age;
       }
 

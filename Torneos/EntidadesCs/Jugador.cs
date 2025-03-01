@@ -7,11 +7,7 @@ namespace EntidadesCs
    public class Jugador :  Persona
    {
       private ushort numero;
-
-      //public Jugador ()
-      //{
-
-      //}
+      public Equipo Equipo { get; set; } // asoc equipo (1 jugador 1 equipo)
 
       public Jugador (string nombre, DateTime fechaNacimiento, ushort numero) : base(nombre, fechaNacimiento)
       {

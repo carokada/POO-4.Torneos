@@ -136,7 +136,7 @@ namespace DemoCs
          Console.WriteLine();
          Console.WriteLine(" jugadores comprados: ");
          VerJugadores(equipo1);
-         Console.WriteLine("\n realizando transacciones con jugadores...");
+         Console.WriteLine(" realizando transacciones con jugadores...");
          equipo1.VenderJugador(jugador2, equipo3);
          equipo1.LiberarJugador(jugador3);
          VerJugadores(equipo1);

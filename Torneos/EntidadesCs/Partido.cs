@@ -41,28 +41,18 @@ namespace EntidadesCs
 
       public void NuevoGolLocal(ushort minutos)
       {
-         if (!FinPartido)
-         {
-            minutosGolesLocal.Add((byte)minutos);
-            GolesLocal++;
-         }
-         else
-         {
+         if (FinPartido)
             throw new ArgumentException(" no se pueden agregar goles. el partido se marco como finalizado.");
-         }
+         minutosGolesLocal.Add((byte)minutos);
+         GolesLocal++;
       }
 
       public void NuevoGolVisitante(ushort minutos)
       {
-         if (!FinPartido)
-         {
-            minutosGolesVisitante.Add((byte)minutos);
-            GolesVisitante++;
-         }
-         else
-         {
+         if (FinPartido)
             throw new ArgumentException(" no se pueden agregar goles. el partido se marco como finalizado.");
-         }
+         minutosGolesVisitante.Add((byte)minutos);
+         GolesVisitante++;
       }
 
       public List<byte> GetAllGolesLocal()
@@ -77,14 +67,9 @@ namespace EntidadesCs
 
       public void SetArbitro(Referee arbitro)
       {
-         if (!FinPartido)
-         {
-            Arbitro = arbitro;
-         }
-         else
-         {
+         if (FinPartido)
             throw new ArgumentException(" no se puede asignar un arbitro. el partido se marco como finalizado.");
-         }
+         Arbitro = arbitro;
       }
 
       public void Finalizado() // no permite mas modificaciones en el obj
